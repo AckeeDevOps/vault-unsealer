@@ -1,0 +1,41 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: vault-unsealer
+spec:
+  schedule: "*/5 * * * *" # At every 5th minute
+  concurrencyPolicy: Replace
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: unsealer
+            image: ackee/vault-unsealer
+            # Change these values or refer them to the secret/ConfigMap
+            env:
+              - name: GOOGLE_APPLICATION_CREDENTIALS
+                value: /etc/secrets/gcp/key.json
+              - name: VAULT_ADDR
+                value: https://vault.yourdomain.co.uk
+              - name: GCP_PROJECT_NAME
+                value: test-cloud-01-123456
+              - name: GCP_KEY_RING_LOCATION
+                value: europe-west3
+              - name: GCP_KEY_RING_NAME
+                value: key-ring
+              - name: GCP_KEY_NAME
+                value: key01
+              - name: GCP_STORAGE_BUCKET_NAME
+                value: my-gcs-bucket-name01
+              - name: VAULT_KEYS_FILE_NAMES
+                value: vault-unseal-0,vault-unseal-1,vault-unseal-2
+            volumeMounts:
+              - name: vault-unsealer-credentials-volume
+                mountPath: /etc/secrets/gcp/
+          # Don't forget to create secret with SA upfront
+          volumes:
+            - name: vault-unsealer-credentials-volume
+              secret:
+                secretName: vault-unsealer-credentials
