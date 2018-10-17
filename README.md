@@ -31,10 +31,10 @@ Configuration is done via environment variables.
 ## Prepare your environment for using ackee-vault-unsealer
 
 1. Enable Google Cloud Key Management Service
-2. Create keyring and key in the KMS section
+2. Create key ring and key in the KMS section
 2. In the GCP IAM section crate a new Service Account
-3. Generare a new key for the previously created Service Account
-4. Set propper IAM binding for the previously created SA ([source](https://codelabs.developers.google.com/codelabs/vault-on-gke/index.html?index=..%2F..%2Fcloud#5))
+3. Generate a new key for the previously created Service Account
+4. Set proper IAM binding for the previously created SA ([source](https://codelabs.developers.google.com/codelabs/vault-on-gke/index.html?index=..%2F..%2Fcloud#5))
 
   ```bash
   gcloud kms keys add-iam-policy-binding ${GCP_KEY_NAME} \
