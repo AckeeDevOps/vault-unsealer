@@ -20,7 +20,7 @@ Configuration is done via environment variables.
 | **Variable name**              | **Example**                                    |
 | ------------------------------ |----------------------------------------------- |
 | VAULT_ADDR                     | `https://vault.yourdomain.co.uk`               |
-| GCP_PROJECT_NAME               | `test-cloud-01-123456`                         |
+| GCP_PROJECT_ID                 | `test-cloud-01-123456`                         |
 | GCP_KEY_RING_LOCATION          | `europe-west3`                                 |
 | GCP_KEY_RING_NAME              | `key-ring`                                     |
 | GCP_KEY_NAME                   | `key01`                                        |
