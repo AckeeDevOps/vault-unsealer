@@ -19,7 +19,7 @@ spec:
                 value: /etc/secrets/gcp/key.json
               - name: VAULT_ADDR
                 value: https://vault.yourdomain.co.uk
-              - name: GCP_PROJECT_NAME
+              - name: GCP_PROJECT_ID
                 value: test-cloud-01-123456
               - name: GCP_KEY_RING_LOCATION
                 value: europe-west3
