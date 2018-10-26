@@ -2,7 +2,7 @@ require_relative 'ackee_unsealer/runner'
 require 'pry'
 
 runner = AckeeUnsealer::Runner.new
-runner.project_name = ENV['GCP_PROJECT_NAME']
+runner.project_name = ENV['GCP_PROJECT_ID']
 runner.gcp_location = ENV['GCP_KEY_RING_LOCATION']
 runner.key_ring_name = ENV['GCP_KEY_RING_NAME']
 runner.key_name = ENV['GCP_KEY_NAME']
