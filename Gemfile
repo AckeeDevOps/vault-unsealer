@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'dotenv', '2.1.1'
-gem 'google-cloud-storage', '1.34.1'
+gem 'google-cloud-storage', '1.29.1'
 gem 'pry'
 gem 'rake', '13.0.3'
 gem 'vault', '0.15.0'
